@@ -38,8 +38,8 @@ class LinearHash:
     def insert_linear(self, key):
         index = self.__hash_function(key)
         if self.__Table[index] is not None:
-            self.collisions += 1
             while self.__Table[index] is not None:
+                self.collisions += 1
                 index = (index + 1) % self.__capacity
         self.__Table[index] = key
 
@@ -87,6 +87,9 @@ print(linear_collisions)
 print(linear_max)
 print(linear_min)
 print(linear_average)
+print("\t\t\t\t\t\tAverage Cost\n\t\t  Chaining\t\t\t|\t\tOpen Addressing\nMinimum | Maximum | Average | Minimum | "
+      "Maximum | Average\n  " + str(chaining_min) + "\t|\t" + str(chaining_max) + "  |\t" + str(chaining_average) +
+      "\t|  " + str(linear_min) + "  |  " + str(linear_max) + "\t| " + str(linear_average))
 # print arrays
 """for i, array in enumerate(arrays):
     print(f"Array {i + 1}: {array}")"""
