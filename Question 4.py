@@ -14,8 +14,8 @@ class Customer:
         interest_amount = self.amount * (self.interest_rate + 100) / 100
         # Repayment per month
         payment = round(interest_amount / self.duration / 12, 2)
-        print(self.customer, "\nLoan Amount: RM", self.amount, "\nInterest Rate:", self.interest_rate, "%\nDuration:",
-              self.duration, "years\nMonthly Repayment: RM", payment, "\n")
+        print(f"{self.customer} Loan Amount: RM {self.amount}\n{self.customer} Interest Rate: {self.interest_rate} %\n"
+              f"{self.customer} Duration: {self.duration} years\n{self.customer} Monthly Repayment: RM {payment}\n")
 
 customers = []
 customer1 = Customer("John", 100000, 3.78, 5)
