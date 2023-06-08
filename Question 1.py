@@ -43,7 +43,7 @@ class Program:
         while True:
             location = str(input("Enter the address of the location: "))
             # Validation of the location address by regex
-            if not re.match(r"^[a-zA-Z0-9\s,.\'-]{3,}$", location):
+            if not re.match(r"^[a-zA-Z0-9\s,./'-]{3,}$", location):
                 print("Please reenter a valid location.\n")
             else:
                 break
@@ -257,6 +257,9 @@ class Program:
 
                         else:
                             print("Please enter a valid input.\n")
+
+                elif quantity < 0:
+                    print("Please enter a valid quantity.")
 
                 else:
                     break
@@ -762,7 +765,7 @@ class Program:
                                         while True:
                                             try:
                                                 print("***Modify Cake Quantity***\n\n*press 0 to go back to the order "
-                                                      "details*\n")
+                                                      "details*")
                                                 new_quantity = int(input("Enter the quantity of the cake: "))
 
                                                 # Validation of the new quantity of cake
@@ -788,6 +791,14 @@ class Program:
                                                     if confirm_infomation == "YES":
                                                         os.system("cls")
                                                         break
+
+                                                elif new_quantity < 0:
+                                                    # Display status
+                                                    print("Please enter a valid quantity.\n\n###### No change to cake "
+                                                          "quantity ######")
+                                                    input("\nPress enter to continue.")
+                                                    os.system("cls")
+                                                    break
 
                                                 else:
                                                     # A loop to ask the user confirm update the order
@@ -1135,7 +1146,7 @@ class BST:
                 traversal_parent.right_child = traversal.right_child
             else:
                 traversal_parent.left_child = traversal.right_child
-                
+
             del traversal
         self.__numOfItem -= 1
         return True
